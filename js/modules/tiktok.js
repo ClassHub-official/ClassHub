@@ -7,14 +7,8 @@ async function loadTikTokVideos() {
   container.innerHTML = "Chargement des vidéos...";
 
   try {
-    const res = await fetch("http://localhost:3000/videos");
-    if (!res.ok) {
-      container.innerHTML = "<p>Erreur serveur (" + res.status + ").</p>";
-      return;
-    }
-
+    const res = await fetch("https://classhub-5l38.onrender.com/videos");
     const vids = await res.json();
-    console.log("Vidéos reçues:", vids);
 
     container.innerHTML = "";
 
@@ -80,8 +74,8 @@ async function loadTikTokVideos() {
       container.innerHTML = "<p>Aucune vidéo publiée pour le moment.</p>";
     }
   } catch (e) {
-    console.error("Erreur fetch vidéos:", e);
-    container.innerHTML = "<p>Erreur de chargement des vidéos.</p>";
+    console.error("Erreur :", e);
+    container.innerHTML = "<p>Erreur de connexion au serveur Render.</p>";
   }
 }
 
