@@ -1,48 +1,59 @@
 console.log("HubVids Studio chargé");
 
-// Sauvegarde des vidéos dans localStorage
-function saveVideoToTikTok(base64) {
-  let vids = localStorage.getItem("tiktok_videos");
-  vids = vids ? JSON.parse(vids) : [];
-
-  vids.push({
-    id: Date.now(),
-    src: base64
-  });
-
-  localStorage.setItem("tiktok_videos", JSON.stringify(vids));
-}
-
-// Import vidéo
 document.addEventListener("DOMContentLoaded", () => {
   const input = document.getElementById("videoImport");
+  if (!input) {
+    console.warn("input#videoImport introuvable");
+    return;
+  }
 
-  if (!input) return;
-
-  input.addEventListener("change", function () {
+  input.addEventListener("change", async function () {
     const file = this.files[0];
     if (!file) return;
 
-    const reader = new FileReader();
+    const accept = confirm(
+      "Acceptez-vous les conditions de publication ?\n\n" +
+      "- Votre vidéo sera visible par tous les utilisateurs\n" +
+      "- Elle sera stockée sur le serveur\n" +
+      "- Vous pouvez la supprimer plus tard"
+    );
 
-    reader.onload = function (e) {
-      const base64 = e.target.result;
+    if (!accept) {
+      alert("Publication annulée.");
+      return;
+    }
 
-      const accept = confirm(
-        "Acceptez-vous les conditions de publication ?\n\n" +
-        "- Votre vidéo sera visible dans TikTok‑like\n" +
-        "- Elle sera stockée localement dans votre appareil\n" +
-        "- Vous pouvez la supprimer à tout moment"
-      );
+    const formData = new FormData();
+    formData.append("video", file);
 
-      if (accept) {
-        saveVideoToTikTok(base64);
-        alert("Vidéo publiée dans TikTok‑like !");
-      } else {
-        alert("Publication annulée.");
+    try {
+      const res = await fetch("http://localhost:3000/upload", {
+        method: "POST",
+        body: formData
+      });
+
+      if (!res.ok) {
+        console.error("Erreur HTTP upload:", res.status);
+        alert("Erreur lors de la publication (HTTP " + res.status + ").");
+        return;
       }
-    };
 
-    reader.readAsDataURL(file);
+      const data = await res.json();
+      console.log("Réponse upload:", data);
+
+      if (data.success) {
+        alert("Vidéo publiée !");
+
+        // si la fonction de TikTok existe, on recharge le feed
+        if (typeof loadTikTokVideos === "function") {
+          loadTikTokVideos();
+        }
+      } else {
+        alert("Erreur lors de la publication.");
+      }
+    } catch (e) {
+      console.error("Erreur fetch upload:", e);
+      alert("Erreur de connexion au serveur.");
+    }
   });
 });
