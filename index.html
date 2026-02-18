@@ -5,6 +5,7 @@
   <title>ClassHub – Super‑App</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Google Sans -->
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 
   <style>
@@ -12,16 +13,20 @@
       font-family: "Google Sans", sans-serif;
       background: url("wallpaper.jpg") no-repeat center center fixed;
       background-size: cover;
+      margin: 0;
+      padding: 0;
     }
   </style>
 </head>
+
 <body>
   <div style="display:flex; min-height:100vh;">
 
     <!-- SIDEBAR -->
-    <aside style="width:260px; padding:16px; border-right:1px solid #ccc; background-color:rgba(0,0,0,0.4); color:#fff;">
+    <aside style="width:260px; padding:16px; border-right:1px solid #ccc; background-color:rgba(0,0,0,0.45); color:white;">
+      
+      <!-- Logo -->
       <div style="display:flex; align-items:center; gap:8px; margin-bottom:16px;">
-        <!-- Icône ClassHub -->
         <svg width="28" height="28">
           <defs>
             <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
@@ -30,96 +35,96 @@
             </linearGradient>
           </defs>
           <rect x="2" y="2" width="24" height="24" rx="8" fill="url(#logoGrad)"></rect>
-          <text x="14" y="18" text-anchor="middle" font-size="10" fill="#050716" font-family="sans-serif">CH</text>
+          <text x="14" y="18" text-anchor="middle" font-size="10" fill="#050716">CH</text>
         </svg>
         <strong>ClassHub</strong>
       </div>
 
+      <!-- User -->
       <div id="user-block" style="margin-bottom:16px;">
         Chargement du profil...
       </div>
 
-      <div>
-        <p style="font-size:12px; opacity:0.7; text-transform:uppercase;">Navigation</p>
+      <!-- Navigation -->
+      <p style="font-size:12px; opacity:0.7; text-transform:uppercase;">Navigation</p>
 
-        <div data-module="dashboard" style="cursor:pointer; margin:4px 0;">
-          <svg width="18" height="18" style="vertical-align:middle; margin-right:4px;">
-            <rect x="1" y="1" width="16" height="16" rx="4" fill="#6f8bff"></rect>
-          </svg>
-          <span>Tableau de bord</span>
-        </div>
+      <div data-module="dashboard" style="cursor:pointer; margin:4px 0;">
+        <svg width="18" height="18" style="vertical-align:middle; margin-right:4px;">
+          <rect x="1" y="1" width="16" height="16" rx="4" fill="#6f8bff"></rect>
+        </svg>
+        <span>Tableau de bord</span>
+      </div>
 
-        <div data-module="tiktok" style="cursor:pointer; margin:4px 0;">
-          <svg width="18" height="18" style="vertical-align:middle; margin-right:4px;">
-            <defs>
-              <linearGradient id="tikGrad" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stop-color="#ff0050"/>
-                <stop offset="100%" stop-color="#00f2ea"/>
-              </linearGradient>
-            </defs>
-            <circle cx="9" cy="9" r="8" fill="url(#tikGrad)"></circle>
-          </svg>
-          <span>Vidéos courtes (TikTok‑like)</span>
-        </div>
+      <div data-module="tiktok" style="cursor:pointer; margin:4px 0;">
+        <svg width="18" height="18" style="vertical-align:middle; margin-right:4px;">
+          <defs>
+            <linearGradient id="tikGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#ff0050"/>
+              <stop offset="100%" stop-color="#00f2ea"/>
+            </linearGradient>
+          </defs>
+          <circle cx="9" cy="9" r="8" fill="url(#tikGrad)"></circle>
+        </svg>
+        <span>Vidéos courtes (TikTok‑like)</span>
+      </div>
 
-        <div data-module="youtube" style="cursor:pointer; margin:4px 0;">
-          <svg width="18" height="18" style="vertical-align:middle; margin-right:4px;">
-            <rect x="1" y="3" width="16" height="12" rx="3" fill="#ff0000"></rect>
-            <polygon points="8,6 12,9 8,12" fill="#ffffff"></polygon>
-          </svg>
-          <span>Vidéos longues (YouTube‑like)</span>
-        </div>
+      <div data-module="youtube" style="cursor:pointer; margin:4px 0;">
+        <svg width="18" height="18" style="vertical-align:middle; margin-right:4px;">
+          <rect x="1" y="3" width="16" height="12" rx="3" fill="#ff0000"></rect>
+          <polygon points="8,6 12,9 8,12" fill="#ffffff"></polygon>
+        </svg>
+        <span>Vidéos longues (YouTube‑like)</span>
+      </div>
 
-        <div data-module="docs" style="cursor:pointer; margin:4px 0;">
-          <svg width="18" height="18" style="vertical-align:middle; margin-right:4px;">
-            <rect x="2" y="2" width="14" height="14" rx="2" fill="#1a73e8"></rect>
-          </svg>
-          <span>Documents (Docs‑like)</span>
-        </div>
+      <div data-module="docs" style="cursor:pointer; margin:4px 0;">
+        <svg width="18" height="18" style="vertical-align:middle; margin-right:4px;">
+          <rect x="2" y="2" width="14" height="14" rx="2" fill="#1a73e8"></rect>
+        </svg>
+        <span>Documents (Docs‑like)</span>
+      </div>
 
-        <div data-module="classes" style="cursor:pointer; margin:4px 0;">
-          <svg width="18" height="18" style="vertical-align:middle; margin-right:4px;">
-            <rect x="1" y="3" width="16" height="12" rx="2" fill="#34a853"></rect>
-          </svg>
-          <span>Classes & devoirs</span>
-        </div>
+      <div data-module="classes" style="cursor:pointer; margin:4px 0;">
+        <svg width="18" height="18" style="vertical-align:middle; margin-right:4px;">
+          <rect x="1" y="3" width="16" height="12" rx="2" fill="#34a853"></rect>
+        </svg>
+        <span>Classes & devoirs</span>
+      </div>
 
-        <div data-module="messages" style="cursor:pointer; margin:4px 0;">
-          <svg width="18" height="18" style="vertical-align:middle; margin-right:4px;">
-            <rect x="1" y="3" width="16" height="12" rx="3" fill="#8e24aa"></rect>
-          </svg>
-          <span>Messages</span>
-        </div>
+      <div data-module="messages" style="cursor:pointer; margin:4px 0;">
+        <svg width="18" height="18" style="vertical-align:middle; margin-right:4px;">
+          <rect x="1" y="3" width="16" height="12" rx="3" fill="#8e24aa"></rect>
+        </svg>
+        <span>Messages</span>
+      </div>
 
-        <div data-module="hubvids" style="cursor:pointer; margin:4px 0;">
-          <svg width="18" height="18" style="vertical-align:middle; margin-right:4px;">
-            <defs>
-              <linearGradient id="hubGrad" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stop-color="#00e5ff"/>
-                <stop offset="100%" stop-color="#7c4dff"/>
-              </linearGradient>
-            </defs>
-            <rect x="2" y="2" width="14" height="14" rx="3" fill="url(#hubGrad)"></rect>
-            <polygon points="8,6 12,9 8,12" fill="#050716"></polygon>
-          </svg>
-          <span>HubVids Studio</span>
-        </div>
+      <div data-module="hubvids" style="cursor:pointer; margin:4px 0;">
+        <svg width="18" height="18" style="vertical-align:middle; margin-right:4px;">
+          <defs>
+            <linearGradient id="hubGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#00e5ff"/>
+              <stop offset="100%" stop-color="#7c4dff"/>
+            </linearGradient>
+          </defs>
+          <rect x="2" y="2" width="14" height="14" rx="3" fill="url(#hubGrad)"></rect>
+          <polygon points="8,6 12,9 8,12" fill="#050716"></polygon>
+        </svg>
+        <span>HubVids Studio</span>
+      </div>
 
-        <div data-module="profile" style="cursor:pointer; margin:4px 0;">
-          <svg width="18" height="18" style="vertical-align:middle; margin-right:4px;">
-            <circle cx="9" cy="6" r="3" fill="#ffb300"></circle>
-            <rect x="4" y="9" width="10" height="6" rx="3" fill="#ffe082"></rect>
-          </svg>
-          <span>Profil</span>
-        </div>
+      <div data-module="profile" style="cursor:pointer; margin:4px 0;">
+        <svg width="18" height="18" style="vertical-align:middle; margin-right:4px;">
+          <circle cx="9" cy="6" r="3" fill="#ffb300"></circle>
+          <rect x="4" y="9" width="10" height="6" rx="3" fill="#ffe082"></rect>
+        </svg>
+        <span>Profil</span>
+      </div>
 
-        <div data-module="settings" style="cursor:pointer; margin:4px 0;">
-          <svg width="18" height="18" style="vertical-align:middle; margin-right:4px;">
-            <circle cx="9" cy="9" r="3" fill="#ffffff"></circle>
-            <circle cx="9" cy="9" r="7" fill="none" stroke="#607d8b" stroke-width="2"></circle>
-          </svg>
-          <span>Paramètres</span>
-        </div>
+      <div data-module="settings" style="cursor:pointer; margin:4px 0;">
+        <svg width="18" height="18" style="vertical-align:middle; margin-right:4px;">
+          <circle cx="9" cy="9" r="3" fill="#ffffff"></circle>
+          <circle cx="9" cy="9" r="7" fill="none" stroke="#607d8b" stroke-width="2"></circle>
+        </svg>
+        <span>Paramètres</span>
       </div>
 
       <div style="margin-top:16px;">
@@ -140,54 +145,56 @@
       <!-- TIKTOK-LIKE -->
       <section class="module" data-module="tiktok" style="display:none;">
         <h3>Vidéos courtes (TikTok‑like)</h3>
-        <p>Ici tu pourras scroller un feed de vidéos verticales, liker, commenter, publier.</p>
+        <div id="tiktokFeed"></div>
       </section>
 
       <!-- YOUTUBE-LIKE -->
       <section class="module" data-module="youtube" style="display:none;">
         <h3>Vidéos longues (YouTube‑like)</h3>
-        <p>Espace pour les vidéos longues, playlists, recommandations et historique.</p>
+        <p>À venir…</p>
       </section>
 
-      <!-- DOCS-LIKE -->
+      <!-- DOCS -->
       <section class="module" data-module="docs" style="display:none;">
-        <h3>Documents (type Google Docs)</h3>
-        <p>Zone pour créer, éditer et organiser des documents texte dans ton OS ClassHub.</p>
+        <h3>Documents</h3>
+        <p>À venir…</p>
       </section>
 
-      <!-- CLASSES & DEVOIRS -->
+      <!-- CLASSES -->
       <section class="module" data-module="classes" style="display:none;">
         <h3>Classes & devoirs</h3>
-        <p>Gestion des cours, devoirs, remises, et suivi de progression.</p>
+        <p>À venir…</p>
       </section>
 
       <!-- MESSAGES -->
       <section class="module" data-module="messages" style="display:none;">
         <h3>Messages</h3>
-        <p>Espace de messagerie pour discuter, échanger des liens, des documents et des vidéos.</p>
+        <p>À venir…</p>
       </section>
 
       <!-- HUBVIDS STUDIO -->
       <section class="module" data-module="hubvids" style="display:none;">
         <h3>HubVids Studio</h3>
-        <p>Studio pour importer, organiser et préparer tes vidéos avant de les publier.</p>
-        <p>(Prochaine étape : on code ici l’import de fichiers vidéo.)</p>
+        <p>Importer une vidéo pour la publier dans TikTok‑like.</p>
+        <input type="file" id="videoImport" accept="video/*">
       </section>
 
       <!-- PROFIL -->
       <section class="module" data-module="profile" style="display:none;">
         <h3>Profil</h3>
-        <p>Informations de ton compte ClassHub.</p>
+        <p>À venir…</p>
       </section>
 
       <!-- PARAMÈTRES -->
       <section class="module" data-module="settings" style="display:none;">
         <h3>Paramètres</h3>
-        <p>Thème, préférences, confidentialité, gestion locale de tes données.</p>
+        <p>À venir…</p>
       </section>
+
     </main>
   </div>
 
+  <!-- Scripts -->
   <script src="auth/auth.js"></script>
   <script src="js/core.js"></script>
   <script src="js/modules/tiktok.js"></script>
@@ -198,5 +205,6 @@
   <script src="js/modules/profile.js"></script>
   <script src="js/modules/settings.js"></script>
   <script src="js/modules/hubvidsstudio.js"></script>
+
 </body>
 </html>
