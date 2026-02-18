@@ -5,7 +5,6 @@
   <title>ClassHub – Super‑App</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Google Sans -->
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 
   <style>
@@ -22,10 +21,7 @@
 <body>
   <div style="display:flex; min-height:100vh;">
 
-    <!-- SIDEBAR -->
     <aside style="width:260px; padding:16px; border-right:1px solid #ccc; background-color:rgba(0,0,0,0.45); color:white;">
-      
-      <!-- Logo -->
       <div style="display:flex; align-items:center; gap:8px; margin-bottom:16px;">
         <svg width="28" height="28">
           <defs>
@@ -40,12 +36,10 @@
         <strong>ClassHub</strong>
       </div>
 
-      <!-- User -->
       <div id="user-block" style="margin-bottom:16px;">
         Chargement du profil...
       </div>
 
-      <!-- Navigation -->
       <p style="font-size:12px; opacity:0.7; text-transform:uppercase;">Navigation</p>
 
       <div data-module="dashboard" style="cursor:pointer; margin:4px 0;">
@@ -132,69 +126,57 @@
       </div>
     </aside>
 
-    <!-- MAIN -->
     <main style="flex:1; padding:16px; background-color:rgba(255,255,255,0.85);">
       <h2>Votre espace ClassHub</h2>
 
-      <!-- DASHBOARD -->
       <section class="module" data-module="dashboard">
         <h3>Tableau de bord</h3>
         <p>Une seule application, plusieurs univers : vidéos courtes, longues, documents, classes, messages, profil, paramètres.</p>
       </section>
 
-      <!-- TIKTOK-LIKE -->
       <section class="module" data-module="tiktok" style="display:none;">
         <h3>Vidéos courtes (TikTok‑like)</h3>
         <div id="tiktokFeed"></div>
       </section>
 
-      <!-- YOUTUBE-LIKE -->
       <section class="module" data-module="youtube" style="display:none;">
         <h3>Vidéos longues (YouTube‑like)</h3>
         <p>À venir…</p>
       </section>
 
-      <!-- DOCS -->
       <section class="module" data-module="docs" style="display:none;">
         <h3>Documents</h3>
         <p>À venir…</p>
       </section>
 
-      <!-- CLASSES -->
       <section class="module" data-module="classes" style="display:none;">
         <h3>Classes & devoirs</h3>
         <p>À venir…</p>
       </section>
 
-      <!-- MESSAGES -->
       <section class="module" data-module="messages" style="display:none;">
         <h3>Messages</h3>
         <p>À venir…</p>
       </section>
 
-      <!-- HUBVIDS STUDIO -->
       <section class="module" data-module="hubvids" style="display:none;">
         <h3>HubVids Studio</h3>
-        <p>Importer une vidéo pour la publier dans TikTok‑like.</p>
+        <p>Importer une vidéo pour la publier dans TikTok‑like (visible par tous).</p>
         <input type="file" id="videoImport" accept="video/*">
       </section>
 
-      <!-- PROFIL -->
       <section class="module" data-module="profile" style="display:none;">
         <h3>Profil</h3>
         <p>À venir…</p>
       </section>
 
-      <!-- PARAMÈTRES -->
       <section class="module" data-module="settings" style="display:none;">
         <h3>Paramètres</h3>
         <p>À venir…</p>
       </section>
-
     </main>
   </div>
 
-  <!-- Scripts -->
   <script src="auth/auth.js"></script>
   <script src="js/core.js"></script>
   <script src="js/modules/tiktok.js"></script>
@@ -205,6 +187,5 @@
   <script src="js/modules/profile.js"></script>
   <script src="js/modules/settings.js"></script>
   <script src="js/modules/hubvidsstudio.js"></script>
-
 </body>
 </html>
