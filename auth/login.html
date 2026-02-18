@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Se connecter – ClassHub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <h1>Se connecter à ClassHub</h1>
+
+  <form onsubmit="handleLogin(event)">
+    <div>
+      <label for="username">Nom d'utilisateur</label><br>
+      <input type="text" id="username" name="username" required>
+    </div>
+
+    <div>
+      <label for="password">Mot de passe</label><br>
+      <input type="password" id="password" name="password" required>
+    </div>
+
+    <p>
+      En continuant, vous acceptez nos conditions et nos politiques de confidentialité.
+    </p>
+
+    <button type="submit">Se connecter</button>
+  </form>
+
+  <p>
+    Pas encore de compte ? <a href="register.html">S'inscrire</a>
+  </p>
+
+  <script src="auth.js"></script>
+</body>
+</html>
