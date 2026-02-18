@@ -1,9 +1,10 @@
 import express from "express";
 import fs from "fs";
 import multer from "multer";
+import path from "path";
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 const upload = multer({ dest: "uploads/" });
 const VIDEO_DB = "videos.json";
@@ -26,9 +27,7 @@ app.get("/videos", (req, res) => {
 
 app.post("/upload", upload.single("video"), (req, res) => {
   const file = req.file;
-  if (!file) {
-    return res.status(400).json({ error: "Aucune vidéo reçue" });
-  }
+  if (!file) return res.status(400).json({ error: "Aucune vidéo reçue" });
 
   const videos = JSON.parse(fs.readFileSync(VIDEO_DB));
 
@@ -36,7 +35,7 @@ app.post("/upload", upload.single("video"), (req, res) => {
     id: Date.now(),
     filename: file.filename,
     originalName: file.originalname,
-    url: `http://localhost:${PORT}/uploads/${file.filename}`
+    url: `${req.protocol}://${req.get("host")}/uploads/${file.filename}`
   };
 
   videos.push(newVideo);
@@ -48,5 +47,5 @@ app.post("/upload", upload.single("video"), (req, res) => {
 app.use("/uploads", express.static("uploads"));
 
 app.listen(PORT, () => {
-  console.log("Serveur ClassHub lancé sur http://localhost:" + PORT);
+  console.log("Serveur ClassHub lancé sur le port " + PORT);
 });
